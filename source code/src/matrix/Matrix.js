@@ -35,11 +35,11 @@ class Matrix extends React.Component {
     this.setColors();
   }
 
-  setColors = () => {
+  setColors = (evt, rows = this.state.rows, cols = this.state.cols) => {
     var colors = [];
-    for (let i = 0; i < this.state.rows; i++) {
+    for (let i = 0; i < rows; i++) {
       let color = [];
-      for (let j = 0; j < this.state.cols; j++) {
+      for (let j = 0; j < cols; j++) {
         color.push("");
       }
       colors.push(color);
@@ -253,6 +253,7 @@ class Matrix extends React.Component {
       this.setState({
         rows: event.target.value,
       });
+      this.setColors(undefined, event.target.value);
     }
   };
 
@@ -262,6 +263,7 @@ class Matrix extends React.Component {
       this.setState({
         cols: event.target.value,
       });
+      this.setColors(undefined, undefined, event.target.value);
     }
   };
 
