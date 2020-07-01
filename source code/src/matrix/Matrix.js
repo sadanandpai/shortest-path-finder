@@ -153,6 +153,8 @@ class Matrix extends React.Component {
           y = exitY;
         let pathDelay = 0;
         [x, y] = [+parents[x][y].split("-")[0], +parents[x][y].split("-")[1]];
+        if(entryX === x && entryY === y)
+          return;
         do {
           let m = x,
             n = y;
