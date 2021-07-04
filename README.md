@@ -1,4 +1,4 @@
 # shortestpathfinder
 BFS to find shortest path
 
-https://sadanandpai.github.io/shortestpathfinder/
+https://sadanandpai.github.io/shortest-path-finder/
