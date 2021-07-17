@@ -3,7 +3,7 @@
 
 ### Shortest Path Finder using BFS algorithm using React
 
-<a href="https://sadanandpai.github.io/single-page-resume-builder/dist/"><img src="cover/cover.png" alt="cover"/></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://sadanandpai.github.io/single-page-resume-builder/dist/"><img src="cover/cover.png" alt="cover"/></a>
 
 [![](https://img.shields.io/github/stars/sadanandpai/shortest-path-finder?style=for-the-badge)](#stars)
 [![](https://img.shields.io/github/forks/sadanandpai/shortest-path-finder?style=for-the-badge)](#forks)<br>
