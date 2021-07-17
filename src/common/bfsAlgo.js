@@ -67,9 +67,10 @@ function getAddToQueueIfAllowedFunction(grid, parents, visited, queue) {
  * @param {*} parents
  * @param {*} grid
  * @param {*} setGrid
+ * @param {*} isInProgress
  * @returns
  */
-async function tracePath(entry, exit, parents, grid, setGrid) {
+async function tracePath(entry, exit, parents, grid, setGrid, isInProgress) {
   let x = exit.x;
   let y = exit.y;
   [x, y] = [parents[x][y].x, parents[x][y].y];
@@ -86,7 +87,7 @@ async function tracePath(entry, exit, parents, grid, setGrid) {
     await delay(100);
     [x, y] = [parents[x][y].x, parents[x][y].y]; // set parents for next iteration
     pathLength += 1;
-  } while (entry.x !== x || entry.y !== y); // check if entry is reached
+  } while (isInProgress.current && (entry.x !== x || entry.y !== y)); // check if entry is reached
 
   return pathLength;
 }
@@ -102,12 +103,7 @@ export async function startBreadthFirstSearchAlgo(grid, setGrid, entry, exit, is
   visited[entry.x][entry.y] = true; // mark it as visited
 
   // get the function for reuse with coordinates
-  const addToQueueIfAllowed = getAddToQueueIfAllowedFunction(
-    grid,
-    parents,
-    visited,
-    queue
-  );
+  const addToQueueIfAllowed = getAddToQueueIfAllowedFunction(grid, parents, visited, queue);
 
   let isPathFound = false;
   outerLoop: while (queue.length) {
@@ -124,7 +120,7 @@ export async function startBreadthFirstSearchAlgo(grid, setGrid, entry, exit, is
         break outerLoop;
       }
 
-      if(!isInProgress.current){
+      if (!isInProgress.current) {
         break outerLoop;
       }
 
@@ -134,7 +130,7 @@ export async function startBreadthFirstSearchAlgo(grid, setGrid, entry, exit, is
       addToQueueIfAllowed(value.x, value.y, value.x, value.y + 1);
       addToQueueIfAllowed(value.x, value.y, value.x, value.y - 1);
 
-      // push the processed coordinate to queue for marking 
+      // push the processed coordinate to queue for marking
       loopQueue.push({ x: value.x, y: value.y });
     }
 
@@ -143,15 +139,19 @@ export async function startBreadthFirstSearchAlgo(grid, setGrid, entry, exit, is
     await delay(200);
   }
 
-  if (isPathFound && isInProgress.current) { // trace the path only if present
+  if (isPathFound && isInProgress.current) {
+    // trace the path only if present
     toast.success("Path found!!! 😃");
-    const pathLength = await tracePath(entry, exit, parents, grid, setGrid);
-    toast("Shortest path length is " + (pathLength + 1));
+    const pathLength = await tracePath(entry, exit, parents, grid, setGrid, isInProgress);
+
+    if (isInProgress.current) {
+      toast("Shortest path length is " + (pathLength + 1));
+    }
     return;
   }
 
   // if no path found
-  if(isInProgress.current){
+  if (isInProgress.current) {
     toast.warning("No path found!!! 😟");
     return;
   }
