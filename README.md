@@ -1,7 +1,7 @@
 <div align="center">
 <h1>Shortest Path Finder (Visualizer)</h1>
 
-### Shortest Path Finder using BFS algorithm using React (easy to learn)
+### Shortest Path Finder using BFS algorithm using React
 
 <a href="https://sadanandpai.github.io/single-page-resume-builder/dist/"><img src="cover/cover.png" alt="cover"/></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
