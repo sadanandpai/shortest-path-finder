@@ -114,13 +114,13 @@ var e=Object.defineProperty,t=Object.getOwnPropertySymbols,n=Object.prototype.ha
   justify-content: center;
   flex-direction: column;
 `,ae=o(S)`
-  display: none;
+  opacity: 0;
   @media (min-width: 768px) {
-    display: block;
+    opacity: 1;
   }
 `,ce=o(S)`
-  display: block;
+  opacity: 1;
   @media (min-width: 768px) {
-    display: none;
+    opacity: 0;
   }
 `;function ie(e,t=-1,n=-1){e.current.x=t,e.current.y=n}function oe(e,t,n){return e.current.x===t&&e.current.y===n}function se(){const[e,t]=h.exports.useState(20),[n,r]=h.exports.useState(55),[l,i]=h.exports.useState(K(e,n)),[o,u]=h.exports.useState(1),m=h.exports.useRef(!1),d=h.exports.useRef({x:-1,y:-1}),p=h.exports.useRef({x:-1,y:-1}),x={rows:e,cols:n,grid:l,clickType:o,setRows:t,setCols:r,setGrid:i,setClickType:u,isInProgress:m,entry:d,exit:p,resetGrid:function(){i(K(e,n)),ie(d),ie(p),m.current=!1},startBFS:function(){return c(this,null,(function*(){if(d.current.x<0||p.current.x<0)return w.error("Entry & Exit are mandatory",{toastId:0}),!1;m.current=!0,yield ne(l,i,d.current,p.current,m)}))},setGridCell:function(e,t,n=o){const r=[...l];r[e][t]=n,(0===n||1===n)&&(oe(d,e,t)?ie(d):oe(p,e,t)&&ie(p));2===n&&(-1!==d.current.x&&(r[d.current.x][d.current.y]=0),ie(d,e,t));3===n&&(-1!==p.current.x&&(r[p.current.x][p.current.y]=0),ie(p,e,t));i(r)}};return s.createElement(s.Fragment,null,s.createElement(re,null,"Shortest Path Finder",s.createElement("a",{href:"https://github.com/sadanandpai/shortest-path-finder"},s.createElement(M,null))),s.createElement(N,a({},x)),s.createElement(le,null,s.createElement(_,a({},x)),s.createElement(U,a({},x)),s.createElement(ae,{autoClose:3e3,pauseOnFocusLoss:!1,toastId:3}),s.createElement(ce,{position:"bottom-center",pauseOnFocusLoss:!1,autoClose:3e3,newestOnTop:!0})))}O.render(s.createElement(s.StrictMode,null,s.createElement(se,null)),document.getElementById("root"));
