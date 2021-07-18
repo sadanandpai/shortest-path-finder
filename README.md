@@ -1,5 +1,5 @@
 <div align="center">
-<h1>Shortest Path Finder (Visualizer)</h1>
+<h2>Shortest Path Finder (Visualizer)</h2>
 
 ### Shortest Path Finder using BFS algorithm using React
 
@@ -35,3 +35,8 @@
 - [Emotion](https://emotion.sh/)
 - [rc-slider](https://slider-react-component.vercel.app/) + [react-toastify](https://fkhadra.github.io/react-toastify) + [reactive-button](https://www.arifszn.com/reactive-button/)
 - [Vite](https://vitejs.dev/) (Bundler)
+
+------------
+
+Feel free to reuse or modify the code/project for your personal or professinal purposes.
+Raise PR for any bugs/imporvements
