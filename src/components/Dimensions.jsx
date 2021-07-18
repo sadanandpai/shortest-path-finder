@@ -1,8 +1,11 @@
 import React, { useEffect } from "react";
 import styled from "@emotion/styled";
+import { css } from '@emotion/css'
 import Dropdown from "react-dropdown";
 import { useWindowSize } from "@react-hook/window-size";
 import Slider, { SliderTooltip, Handle } from "rc-slider";
+import { toast } from "react-toastify";
+
 import "rc-slider/assets/index.css";
 import "react-dropdown/style.css";
 
@@ -82,10 +85,12 @@ export function Dimensions({ rows, cols, resetGrid, setRows, setCols }) {
     const totalCellWidth = cellWidth + cellGap;
     if (cols * totalCellWidth > width - cellWidth) {
       setCols(Math.floor((width - cellWidth) / totalCellWidth));
+      toast.warning("Max screen dimension set");
     }
 
     if (rows * totalCellWidth > height - topHeight) {
       setRows(Math.floor((height - topHeight) / (cellWidth + cellGap)));
+      toast.warning("Max screen dimension set");
     }
     resetGrid();
   }, [rows, cols, width, height]);
@@ -109,7 +114,7 @@ export function Dimensions({ rows, cols, resetGrid, setRows, setCols }) {
           />
         </Label>
       </SliderContainer>
-    
+
       <DropdownContainer>
         <Label>
           Rows
@@ -130,7 +135,13 @@ export function Dimensions({ rows, cols, resetGrid, setRows, setCols }) {
           />
         </Label>
 
-        <AiOutlineInfoCircle onClick={() => setIsOpen(true)} style={{ minWidth: "1em" }} />
+        <AiOutlineInfoCircle
+          onClick={() => setIsOpen(true)}
+          className={css`
+            color: blue;
+            min-width: 1em;
+          `}
+        />
 
         <MobilePopup isOpen={modalIsOpen} setIsOpen={setIsOpen} />
       </DropdownContainer>
