@@ -38,5 +38,5 @@
 
 ------------
 
-Feel free to reuse or modify the code/project for your personal or professinal purposes.
-Raise PR for any bugs/imporvements
+##### Feel free to reuse or modify the code/project for your personal or professinal purposes
+##### Raise PR for any bugs/imporvements
