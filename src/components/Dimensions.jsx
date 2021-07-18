@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import styled from "@emotion/styled";
-import { css } from '@emotion/css'
+import { css } from "@emotion/css";
 import Dropdown from "react-dropdown";
 import { useWindowSize } from "@react-hook/window-size";
 import Slider, { SliderTooltip, Handle } from "rc-slider";
@@ -83,14 +83,21 @@ export function Dimensions({ rows, cols, resetGrid, setRows, setCols }) {
   // keep the number rows and columns withing the viewing window (works on resize as well)
   useEffect(() => {
     const totalCellWidth = cellWidth + cellGap;
+
+    // if columns exceed the actual width
     if (cols * totalCellWidth > width - cellWidth) {
       setCols(Math.floor((width - cellWidth) / totalCellWidth));
-      toast.warning("Max screen dimension set");
+      toast.warning("Max screen dimension set", {
+        toastId: 1,   // just an id to prevent duplicates
+      });
     }
 
+    // if rows exceed the actual width
     if (rows * totalCellWidth > height - topHeight) {
       setRows(Math.floor((height - topHeight) / (cellWidth + cellGap)));
-      toast.warning("Max screen dimension set");
+      toast.warning("Max screen dimension set", {
+        toastId: 1,   // just an id to prevent duplicates
+      });
     }
     resetGrid();
   }, [rows, cols, width, height]);

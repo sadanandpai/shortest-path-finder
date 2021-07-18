@@ -88,7 +88,7 @@ export function App() {
 
   async function startSearch() {
     if (entry.current.x < 0 || exit.current.x < 0) {
-      toast.error("Entry & Exit are mandatory");
+      toast.error("Entry & Exit are mandatory", { toastId: 0 }); // just an id to prevent duplicates
       return false;
     }
 
@@ -124,7 +124,7 @@ export function App() {
       }
       setCell(exit, x, y);
     }
-    
+
     setGrid(newGrid);
   }
 
