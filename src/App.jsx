@@ -28,17 +28,18 @@ const Main = styled.main`
   flex-direction: column;
 `;
 
+// Opacity is used to hide the toast between screen sizes to stop duplication
 const ToastContainerWeb = styled(ToastContainer)`
-  display: none;
+  opacity: 0;
   @media (min-width: 768px) {
-    display: block;
+    opacity: 1;
   }
 `;
 
 const ToastContainerMobile = styled(ToastContainer)`
-  display: block;
+  opacity: 1;
   @media (min-width: 768px) {
-    display: none;
+    opacity: 0;
   }
 `;
 
