@@ -1,7 +1,7 @@
 <div align="center">
 <h2>Shortest Path Finder (Visualizer)</h2>
 
-### Shortest Path Finder using BFS algorithm using React
+### Shortest Path Finder using BFS algorithm in React
 
 <a href="https://sadanandpai.github.io/shortest-path-finder/dist/"><img src="cover/cover.png" alt="cover"/></a>
 
