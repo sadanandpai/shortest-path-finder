@@ -1,16 +1,16 @@
+> [!NOTE]  
+> This project will be deprecated soon. We have revamped the complete Pathfinder project. Plz, visit <a href="https://github.com/sadanandpai/algo-visualizers">Algo visualizer</a> to explore the latest in a development project for Path finder.
+
 <div align="center">
-<h2>Shortest Path Finder (Visualizer)</h2>
-
-### Shortest Path Finder using BFS algorithm in React
-
-<a href="https://sadanandpai.github.io/shortest-path-finder/dist/"><img src="cover/cover.png" alt="cover"/></a>
-
-[![](https://img.shields.io/github/stars/sadanandpai/shortest-path-finder?style=for-the-badge)](#stars)
-[![](https://img.shields.io/github/forks/sadanandpai/shortest-path-finder?style=for-the-badge)](#forks)<br>
-![](https://visitor-badge.glitch.me/badge?page_id=shortest-path-finder)
-
-<a href="https://sadanandpai.github.io/shortest-path-finder/dist/">Live demo</a>
-
+  <h2>Shortest Path Finder (Visualizer)</h2>
+  
+  <a href="https://sadanandpai.github.io/shortest-path-finder/dist/"><img src="cover/cover.png" alt="cover"/></a>
+  
+  [![](https://img.shields.io/github/stars/sadanandpai/shortest-path-finder?style=for-the-badge)](#stars)
+  [![](https://img.shields.io/github/forks/sadanandpai/shortest-path-finder?style=for-the-badge)](#forks)<br>
+  ![](https://visitor-badge.glitch.me/badge?page_id=shortest-path-finder)
+  
+  <a href="https://sadanandpai.github.io/shortest-path-finder/dist/">Live demo</a>
 </div>
 
 ### Running in your local
