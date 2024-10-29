@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./styles.scss";
 
 export const metadata: Metadata = {
   title: "PureFrontend",
