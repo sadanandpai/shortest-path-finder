@@ -21,6 +21,23 @@
   border: none;
   border-radius: 0.5rem;
   cursor: pointer;
+
+  &:hover {
+    background: #0056b3;
+  }
+
+  &:focus {
+    outline: 1px solid #fff;
+  }
+
+  &:active {
+    background: #004286;
+  }
+
+  &:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
 }
 
 .tab {

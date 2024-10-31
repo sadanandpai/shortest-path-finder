@@ -7,6 +7,8 @@ import { EmailField, PasswordField } from "../common/fields";
 import { routes } from "@/lib/common/routes";
 import Link from "next/link";
 import classes from "./auth-form.module.scss";
+import { SubmitButton } from "../common/submit-button";
+import { ErrorField } from "../common/error-field";
 
 export function SignIn() {
   const [state, formAction] = useActionState(signInWithEmail, { error: "" });
@@ -16,12 +18,8 @@ export function SignIn() {
       <form action={formAction} className={classes.authForm}>
         <EmailField />
         <PasswordField />
-
-        {state.error && <p className="error">{state.error}</p>}
-
-        <button type="submit" className="btn">
-          Sign in
-        </button>
+        <ErrorField error={state.error} />
+        <SubmitButton />
       </form>
 
       <div className={classes.authFormLinks}>
