@@ -8,8 +8,14 @@
   flex-grow: 1;
 }
 
+.logo {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 3rem;
+}
+
 .btn {
-  background: blue;
+  background: #007bff;
   color: white;
   padding: 1rem 2rem;
   border: none;

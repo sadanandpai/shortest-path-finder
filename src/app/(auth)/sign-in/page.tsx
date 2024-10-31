@@ -10,9 +10,5 @@ export default async function SignInPage() {
     redirect(routes.profile);
   }
 
-  return (
-    <section>
-      <SignIn />
-    </section>
-  );
+  return <SignIn />;
 }

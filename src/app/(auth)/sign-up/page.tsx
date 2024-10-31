@@ -9,9 +9,5 @@ export default async function SignUpPage() {
     redirect(routes.profile);
   }
 
-  return (
-    <section>
-      <SignUp />
-    </section>
-  );
+  return <SignUp />;
 }

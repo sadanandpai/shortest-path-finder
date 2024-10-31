@@ -1,0 +1,16 @@
+.authSection {
+  padding: 2rem;
+  background-color: rgb(241, 241, 241);
+  width: 90%;
+  margin: 5rem auto;
+  position: relative;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .authSection {
+    margin: 10rem auto;
+    padding: 4rem 4rem 2rem;
+    width: 600px;
+  }
+}
