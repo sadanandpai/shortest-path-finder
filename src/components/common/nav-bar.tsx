@@ -4,7 +4,9 @@ export function NavBar() {
   return (
     <nav className="navbar" role="navigation">
       <h1>
-        <Link href="/">PureFrontend</Link>
+        <Link href="/" style={{ color: "white" }}>
+          PureFrontend
+        </Link>
       </h1>
     </nav>
   );

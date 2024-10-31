@@ -18,3 +18,17 @@ span,
 p {
   font-size: 1.6rem;
 }
+
+a {
+  color: blue;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a.disabled {
+  color: gray;
+  pointer-events: none;
+}

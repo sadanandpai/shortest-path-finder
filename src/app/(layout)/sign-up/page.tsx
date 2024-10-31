@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { redirect } from "next/navigation";
 import { SignUp } from "@/components/auth/sign-up";
 import { getLoggedInUser } from "@/lib/server/actions/auth";
@@ -13,7 +12,6 @@ export default async function SignUpPage() {
   return (
     <section>
       <SignUp />
-      <Link href={routes.signIn}>Sign in</Link>
     </section>
   );
 }
