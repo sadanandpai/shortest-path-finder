@@ -1,11 +1,12 @@
-import { useFormStatus } from "react-dom";
+interface Props {
+  label: string;
+  pending?: boolean;
+}
 
-export function SubmitButton() {
-  const { pending } = useFormStatus();
-
+export function SubmitButton({ label, pending }: Props) {
   return (
     <button type="submit" className="btn" disabled={pending}>
-      Submit
+      {pending ? "Submitting..." : label}
     </button>
   );
 }

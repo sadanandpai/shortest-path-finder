@@ -1,25 +1,34 @@
 "use client";
 
 import { useActionState } from "react";
-import Image from "next/image";
-import { signInWithEmail, signInWithGoogle } from "@/lib/server/actions/auth";
+import { signInWithEmail } from "@/lib/server/actions/auth";
 import { EmailField, PasswordField } from "../common/fields";
-import { routes } from "@/lib/common/routes";
 import Link from "next/link";
+import { OAuth } from "./oauth";
+import { routes } from "@/lib/common/routes";
+import { SubmitButton } from "@/components/common/submit-button";
+import { ErrorField } from "@/components/common/error-field";
 import classes from "./auth-form.module.scss";
-import { SubmitButton } from "../common/submit-button";
-import { ErrorField } from "../common/error-field";
 
 export function SignIn() {
-  const [state, formAction] = useActionState(signInWithEmail, { error: "" });
+  const [state, formAction, pending] = useActionState(signInWithEmail, {
+    errors: {},
+  });
 
   return (
     <div className={classes.authFormWrapper}>
       <form action={formAction} className={classes.authForm}>
-        <EmailField />
-        <PasswordField />
-        <ErrorField error={state.error} />
-        <SubmitButton />
+        <div className="form-field">
+          <EmailField />
+          <ErrorField error={state.errors.email?.[0]} />
+        </div>
+
+        <div className="form-field">
+          <PasswordField />
+          <ErrorField error={state.errors.password?.[0]} />
+        </div>
+
+        <SubmitButton label="Sign in" pending={pending} />
       </form>
 
       <div className={classes.authFormLinks}>
@@ -33,16 +42,7 @@ export function SignIn() {
         <Link href={routes.signUp}>Sign up</Link>
       </div>
 
-      <div className={classes.oauthForms}>
-        <p>Or sign in with</p>
-        <div className={classes.oauthFormsIcons}>
-          <form action={signInWithGoogle} className="">
-            <button type="submit">
-              <Image src="/google.svg" alt="Google" width={40} height={40} />
-            </button>
-          </form>
-        </div>
-      </div>
+      <OAuth />
     </div>
   );
 }

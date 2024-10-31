@@ -7,5 +7,5 @@ export default function OAuthPage() {
     window.location.href = "/profile";
   }
 
-  return <>Loading...</>;
+  return <>Redirecting to the application...</>;
 }

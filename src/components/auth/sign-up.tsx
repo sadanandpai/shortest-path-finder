@@ -1,51 +1,50 @@
 "use client";
 
 import { useActionState } from "react";
-import { signInWithGoogle, signUpWithEmail } from "@/lib/server/actions/auth";
-import { EmailField, FullNameField, PasswordField } from "../common/fields";
-import classes from "./auth-form.module.scss";
 import Link from "next/link";
+import { OAuth } from "./oauth";
 import { routes } from "@/lib/common/routes";
-import Image from "next/image";
+import { signUpWithEmail } from "@/lib/server/actions/auth";
+import { ErrorField } from "@/components/common/error-field";
+import {
+  EmailField,
+  FullNameField,
+  PasswordField,
+} from "@/components/common/fields";
+import classes from "./auth-form.module.scss";
+import { SubmitButton } from "../common/submit-button";
 
 export function SignUp() {
-  const [state, formAction] = useActionState(signUpWithEmail, { error: "" });
+  const [state, formAction, pending] = useActionState(signUpWithEmail, {
+    errors: {},
+  });
 
   return (
     <div className={classes.authFormWrapper}>
       <form action={formAction} className={classes.authForm}>
-        <FullNameField />
-        <EmailField />
-        <PasswordField />
+        <div className="form-field">
+          <FullNameField />
+          <ErrorField error={state.errors.name?.[0]} />
+        </div>
 
-        {state.error && <p className="error">{state.error}</p>}
+        <div className="form-field">
+          <EmailField />
+          <ErrorField error={state.errors.email?.[0]} />
+        </div>
 
-        <button type="submit" className="btn">
-          Sign up
-        </button>
+        <div className="form-field">
+          <PasswordField />
+          <ErrorField error={state.errors.password?.[0]} />
+        </div>
+
+        <SubmitButton label="Sign up" pending={pending} />
       </form>
 
       <div className={classes.authFormLinks}>
-        <Link
-          href={routes.forgotPassword}
-          aria-disabled="true"
-          className="disabled"
-        >
-          Forgot password?
-        </Link>
         <Link href={routes.signIn}>Sign in</Link>
       </div>
 
-      <div className={classes.oauthForms}>
-        <p>Or sign up with</p>
-        <div className={classes.oauthFormsIcons}>
-          <form action={signInWithGoogle} className="">
-            <button type="submit">
-              <Image src="/google.svg" alt="Google" width={40} height={40} />
-            </button>
-          </form>
-        </div>
-      </div>
+      <OAuth />
     </div>
   );
 }

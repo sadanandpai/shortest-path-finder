@@ -96,3 +96,14 @@
 .error {
   color: red;
 }
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+
+  .error {
+    text-align: left;
+    padding: 0.25rem 1rem 0;
+    font-size: 1.2rem;
+  }
+}

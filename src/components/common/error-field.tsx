@@ -1,7 +1,7 @@
 import { useFormStatus } from "react-dom";
 
 interface Props {
-  error: string;
+  error?: string;
 }
 
 export function ErrorField({ error }: Props) {
